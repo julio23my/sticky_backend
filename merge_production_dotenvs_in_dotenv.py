@@ -16,6 +16,10 @@ def merge(
 ) -> None:
     merged_content = ""
     for merge_file in files_to_merge:
+        if not merge_file.exists():
+            print(f"Warning: File not found - {merge_file}. Skipping.")
+            continue
+
         merged_content += merge_file.read_text()
         merged_content += "\n"
     output_file.write_text(merged_content)
