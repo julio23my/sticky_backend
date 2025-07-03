@@ -4,6 +4,9 @@ name: CI
 env:
   DOCKER_BUILDKIT: 1
   COMPOSE_DOCKER_CLI_BUILD: 1
+  DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+  USE_DOCKER: ${{ secrets.USE_DOCKER }}
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
 on:
   pull_request:
